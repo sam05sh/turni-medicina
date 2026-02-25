@@ -120,8 +120,8 @@ if schedule_file and roster_file:
                     "Sbobinatore 2": sbobinatore_2,
                     "Controllore": controllore,
                     "Super controllore": super_controllore,
-                    "Scadenza consigliata": df_schedule[
-                        "Scadenza consigliata"
+                    "Scadenza consegna": df_schedule[
+                        "Scadenza consegna"
                     ].dt.strftime("%d/%m/%Y"),
                     "Consegnato": "Falso",
                 }
@@ -133,13 +133,13 @@ if schedule_file and roster_file:
                 df_output.to_excel(writer, index=False, sheet_name="Turni")
             processed_data = output.getvalue()
 
-            st.success("✅ File elaborato, ordinato cronologicamente e generato con successo!")
+            st.success("File generato")
 
             # Download button
             st.download_button(
                 label="📥 Scarica il file Excel dei Turni",
                 data=processed_data,
-                file_name="Turni_Sbobinature_Ordinati.xlsx",
+                file_name="Turni_Sbobinature2.xlsx",
                 mime=(
                     "application/vnd.openxmlformats-officedocument"
                     ".spreadsheetml.sheet"
