@@ -8,10 +8,7 @@ st.set_page_config(page_title="Gestione Turni Sbobinature", layout="centered")
 
 st.title("Gestione Turni Sbobinature")
 st.markdown(
-    "GUIDA VELOCE: ciao"
-)
-st.markdown(
-    "GUIDA VELOCE: ciao"
+    "GUIDA VELOCE:  Andare su agenda studenti, selezionare anno, selezionare una settimana dove non sono presenti lezioni  in questo modo seleziona tutte le lezioni contemporaneamente, scorrere in fondo e scaricare excel"
 )
 
 # UI for deadline days
