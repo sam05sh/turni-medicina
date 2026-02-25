@@ -8,7 +8,10 @@ st.set_page_config(page_title="Gestione Turni Sbobinature", layout="centered")
 
 st.title("Gestione Turni Sbobinature")
 st.markdown(
-    "GUIDA VELOCE:  Andare su agenda studenti, selezionare anno, selezionare una settimana dove non sono presenti lezioni  in questo modo seleziona tutte le lezioni contemporaneamente, scorrere in fondo e scaricare excel"
+    "GUIDA VELOCE:  Andare su agenda studenti, selezionare anno, selezionare una settimana dove non sono presenti lezioni in questo modo seleziona tutte le lezioni contemporaneamente, scorrere in fondo e scaricare excel"
+)
+st.markdown(
+    "Aggiungere il file nel primo box, aggiungere il file con i cognomi degli sbobinatori nel secondo e clicca GENERA TURNI"
 )
 
 # UI for deadline days
@@ -22,10 +25,10 @@ days_to_add = st.number_input(
 
 # File uploaders
 schedule_file = st.file_uploader(
-    "1. Carica il file Orario (Excel)", type=["xlsx", "xls"]
+    "1. Carica il file delle lezioni (Excel)", type=["xlsx", "xls"]
 )
 roster_file = st.file_uploader(
-    "2. Carica il file Studenti (Excel)", type=["xlsx", "xls"]
+    "2. Carica il file sbobinatori (Excel)", type=["xlsx", "xls"]
 )
 
 # Helper function to extract the starting time from strings like "09:00 - 11:00"
