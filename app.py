@@ -8,8 +8,10 @@ st.set_page_config(page_title="Gestione Turni Sbobinature", layout="centered")
 
 st.title("Gestione Turni Sbobinature")
 st.markdown(
-    "GUIDA VELOCE:
-    ciao"
+    "GUIDA VELOCE: ciao"
+)
+st.markdown(
+    "GUIDA VELOCE: ciao"
 )
 
 # UI for deadline days
