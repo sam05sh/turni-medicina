@@ -6,14 +6,15 @@ from io import BytesIO
 
 st.set_page_config(page_title="Gestione Turni Sbobinature", layout="centered")
 
-st.title("📚 App per Gestione Turni Sbobinature")
+st.title("Gestione Turni Sbobinature")
 st.markdown(
-    "Carica i file Excel. Il sistema ordinerà le lezioni per data e ora prima di assegnare i turni."
+    "GUIDA VELOCE:", 
+    "ciao"
 )
 
 # UI for deadline days
 days_to_add = st.number_input(
-    "Giorni da aggiungere per la Scadenza Consigliata:",
+    "Scadenza consegna sbobina in giorni post lezione:",
     min_value=0,
     max_value=30,
     value=3,
@@ -120,7 +121,7 @@ if schedule_file and roster_file:
                     "Scadenza consigliata": df_schedule[
                         "Scadenza consigliata"
                     ].dt.strftime("%d/%m/%Y"),
-                    "Consegnato (vero o falso)": "Falso",
+                    "Consegnato": "Falso",
                 }
             )
 
