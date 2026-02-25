@@ -51,7 +51,10 @@ if schedule_file and roster_file:
     if st.button("Genera Turni"):
         try:
             # --- STEP 0: Read Data ---
-            df_schedule = pd.read_excel(schedule_file, header=5)
+            schedule_engine = (
+            "xlrd" if schedule_file.name.lower().endswith(".xls") else "openpyxl"
+                )
+            df_schedule = pd.read_excel(schedule_file, header=5, engine=schedule_engine)
             df_schedule.dropna(subset=["Giorno", "Insegnamento"], inplace=True)
 
             # --- STEP 1: STRICT CHRONOLOGICAL SORTING (DATE + TIME) ---
@@ -59,6 +62,17 @@ if schedule_file and roster_file:
             df_schedule["Giorno"] = pd.to_datetime(
                 df_schedule["Giorno"], errors="coerce"
             )
+            
+            # --- STEP 2: Student Preparation ---
+            # Detect the correct engine for the roster file
+            roster_engine = (
+                "xlrd" if roster_file.name.lower().endswith(".xls") else "openpyxl"
+            )
+            df_roster = pd.read_excel(roster_file, engine=roster_engine)
+
+            col_name = df_roster.columns[0]
+            students = df_roster[col_name].dropna().astype(str).tolist()
+            students = sorted([s.strip() for s in students])
             
             # Extract starting time
             df_schedule["start_time_str"] = df_schedule["Ora"].apply(
